@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,5 @@ Route::prefix('/admin')
     ->name('admin.')
     ->group(function () {
         Route::get('/home', [HomeController::class, 'index'])->name('home');
+        Route::resource('/brand', BrandController::class);
     });
