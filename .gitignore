@@ -20,6 +20,7 @@ config.nginx
 /public/css
 /public/js
 /public/assets
+/public/vendor
 
 .phpstorm.meta.php
 _ide_helper.php
