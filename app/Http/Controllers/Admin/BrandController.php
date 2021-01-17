@@ -48,13 +48,13 @@ class BrandController extends Controller
         return redirect(route('admin.brand.index'));
     }
 
-    public function show(IDRequest $idRequest)
+    public function show(IDRequest $idRequest): View
     {
         $brand = $this->crudService->find($idRequest->id);
         return view('admin.brand.show', compact('brand'));
     }
 
-    public function edit(IDRequest $idRequest)
+    public function edit(IDRequest $idRequest): View
     {
         $brand = $this->crudService->find($idRequest->id);
         return view('admin.brand.form', [
@@ -64,8 +64,7 @@ class BrandController extends Controller
         ]);
     }
 
-
-    public function update(UpdateRequest $updateRequest, IDRequest $idRequest)
+    public function update(UpdateRequest $updateRequest, IDRequest $idRequest): RedirectResponse
     {
         $data = $updateRequest->validated();
         try {
@@ -76,8 +75,7 @@ class BrandController extends Controller
         return redirect(route('admin.brand.show', ['brand' => $brand->id]));
     }
 
-
-    public function destroy(IDRequest $deleteRequest)
+    public function destroy(IDRequest $deleteRequest): RedirectResponse
     {
         if ($this->crudService->delete($deleteRequest->id)) {
             return redirect(route('admin.brand.index'))
