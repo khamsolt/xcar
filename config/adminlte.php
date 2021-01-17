@@ -230,6 +230,12 @@ return [
             'topnav' => true,
         ],
         [
+            'text'        => 'dashboard',
+            'url'         => 'admin/home',
+            'icon'        => 'far fa-fw fa-file',
+            'label_color' => 'success',
+        ],
+        [
             'text'        => 'brands',
             'url'         => 'admin/brand',
             'icon'        => 'far fa-fw fa-file',
