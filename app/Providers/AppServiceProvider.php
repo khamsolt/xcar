@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use App\Services\Brand\CrudService as BrandCrudService;
 use App\Services\Brand\Crudable as BrandCrudInterface;
+use App\Services\Brand\CrudService as BrandCrudService;
+use App\Services\Car\Crudable as CarCrudInterface;
+use App\Services\Car\CrudService as CarCrudService;
 use App\Services\Model\Crudable as ModelCrudInterface;
 use App\Services\Model\CrudService as ModelCrudService;
 use App\View\Components\Input\Select;
@@ -21,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(BrandCrudInterface::class, BrandCrudService::class);
         $this->app->singleton(ModelCrudInterface::class, ModelCrudService::class);
+        $this->app->singleton(CarCrudInterface::class, CarCrudService::class);
     }
 
     /**
