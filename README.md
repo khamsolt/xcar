@@ -4,7 +4,7 @@
 
 <ol>
 <li>Склонировать проект</li>
-<li>Скопировать .env.example в env</li>
+<li>Скопировать .env.example в .env</li>
 <li>Добавить переменную MEDIA_DISK=media в .env</li>
 <li>Запустиьб команду composer update</li>
 <li>Запустить команду php artisan key:generate</li>
