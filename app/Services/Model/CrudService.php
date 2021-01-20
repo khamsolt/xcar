@@ -18,14 +18,13 @@ class CrudService implements Crudable
 
     public function findAll(int $limit = 20, int $offset = 0, ?string $sort = null, ?array $filters = null): array
     {
-        $result = Model::whereStatus(0)->with('brand');
-
-        if ($limit > 0) {
-            $result->latest();
-        }
+        $result = Model::whereStatus(0)->with('brand')->latest();
 
         $count = $result->count();
-        $collection = $result->paginate($limit);
+        $collection = $limit > 0
+            ? $result->paginate($limit)
+            : $result->get();
+
         return [$collection, $count];
     }
 

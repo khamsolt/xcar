@@ -12,12 +12,11 @@ class CrudService implements Crudable
     {
         $result = Brand::whereStatus(0)->latest();
 
-        if ($limit > 0) {
-            $result->latest();
-        }
-
         $count = $result->count();
-        $collection = $result->paginate($limit);
+        $collection = $limit > 0
+            ? $result->paginate($limit)
+            : $result->get();
+
         return [$collection, $count];
     }
 
