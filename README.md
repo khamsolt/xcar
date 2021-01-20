@@ -11,8 +11,8 @@
 <li>Запустить команду php artisan storage:link</li>
 <li>Сконфигурировать базу данных</li>
 <li>Сконфигурировать nginx</li>
-<li>Запустить php artisan migrate --seed</li>
 <li>Переключить session в database</li>
+<li>Запустить php artisan migrate --seed</li>
 </ol>
 
 <p>
