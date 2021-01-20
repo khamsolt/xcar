@@ -25,7 +25,7 @@ Route::prefix('/admin')
     ->middleware('auth')
     ->name('admin.')
     ->group(function () {
-        Route::get('/home', [HomeController::class, 'index'])->name('home');
+        Route::get('/', [HomeController::class, 'index'])->name('home');
         Route::resource('/brand', BrandController::class);
         Route::resource('/model', ModelController::class);
         Route::resource('/car', CarController::class);

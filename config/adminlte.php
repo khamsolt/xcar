@@ -231,7 +231,7 @@ return [
         ],
         [
             'text'        => 'dashboard',
-            'url'         => 'admin/home',
+            'url'         => 'admin/',
             'icon'        => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],
