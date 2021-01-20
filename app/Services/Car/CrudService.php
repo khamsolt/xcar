@@ -21,12 +21,10 @@ class CrudService implements Crudable
     {
         $result = Car::whereStatus(0)
             ->latest()
-            ->limit($limit)
-            ->offset($offset)
             ->with('model');
 
         $count = $result->count();
-        $collection = $result->get();
+        $collection = $result->paginate($limit);
         return [$collection, $count];
     }
 

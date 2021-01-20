@@ -10,17 +10,25 @@
 
     <div class="row">
         <div class="col-lg-6">
-            <div class="card">
-                <div class="card-header ">
-                    <h3 class="card-title">@lang('Add New Cars')</h3>
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
+            <div class="card card-widget widget-user">
+                @if(isset($photo))
+                    <div class="widget-user-header text-white"
+                         style="background: url('{{ $photo ?? '' }}') center center;">
+                        <h3 class="widget-user-username text-right">@lang('Add New Cars')</h3>
                     </div>
-                </div>
-                <div class="card-body">
-                    <form action="{{ $route }}" method="{{ isset($get) ? 'GET' : 'POST' }}">
+                @else
+                    <div class="card-header ">
+                        <h3 class="card-title">@lang('Car')</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                @endif
+                <div class="card-footer">
+                    <form action="{{ $route }}" method="{{ isset($get) ? 'GET' : 'POST' }}"
+                          enctype="multipart/form-data">
                         @csrf
                         @if(isset($method))
                             @method($method)
@@ -97,6 +105,10 @@
                             <select name="status" class="form-control">
                                 <option value="0" selected>Default</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="carPhotoID">@lang('Photo')</label>
+                            <input name="photo" type="file" id="carPhotoID">
                         </div>
                         <hr/>
                         <button class="btn btn-outline-primary btn-block" type="submit">

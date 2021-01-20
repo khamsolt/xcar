@@ -19,5 +19,5 @@ return [
     'brands'                        => 'Brands',
     'models'                        => 'Models',
     'cars'                          => 'Cars',
-
+    'dashboard'                     => 'Dashboard'
 ];

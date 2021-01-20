@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Car;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\UploadedFile;
 
 class Update extends FormRequest
 {
@@ -31,8 +32,14 @@ class Update extends FormRequest
             'color'          => 'string',
             'date_creation'  => 'date',
             'rental_type'    => 'integer|in:24',
-            'rental_price'   => 'integer|min:0',
-            'status'         => 'integer|in:0'
+            'rental_price'   => 'numeric|min:0',
+            'status'         => 'integer|in:0',
+            'photo'          => 'file|nullable|max:1024|mimes:jpeg,jpg,png'
         ];
+    }
+
+    public function getFile(): UploadedFile
+    {
+        return $this->file('photo');
     }
 }

@@ -66,6 +66,9 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="card-footer">
+                    {{ $collection->links() }}
+                </div>
             </div>
         </div>
     </div>
